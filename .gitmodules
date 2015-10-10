@@ -1,0 +1,3 @@
+[submodule "XClasses"]
+	path = XClasses
+	url = https://github.com/seebye/XClasses.git
