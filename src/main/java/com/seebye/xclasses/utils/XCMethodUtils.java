@@ -163,6 +163,7 @@ public class XCMethodUtils
 	public static void invokeBefore(XC_MethodHook.MethodHookParam param, Method method, Object objectOurInstance)
 	{
 		Object objectResultHook = null;
+		Object[] aParams = param.args != null ? param.args : new Object[0];
 		ArrayList<Object> aArgs = new ArrayList<>();
 
 		if(AnnotationUtils.hasParametersAsArrayAnnotation(method))
@@ -171,7 +172,7 @@ public class XCMethodUtils
 		}
 
 		//aArgs.addAll(Arrays.asList(param.args));
-		addParametersToList(method, aArgs, param.args);
+		addParametersToList(method, aArgs, aParams);
 
 
 		method.setAccessible(true);
@@ -204,6 +205,7 @@ public class XCMethodUtils
 	public static void invokeAfter(XC_MethodHook.MethodHookParam param, Method method, Object objectOurInstance, Object objectResult)
 	{
 		Object objectResultHook = null;
+		Object[] aParams = param.args != null ? param.args : new Object[0];
 		ArrayList<Object> aArgs = new ArrayList<>();
 
 		aArgs.add(objectResult);
@@ -214,7 +216,7 @@ public class XCMethodUtils
 		}*/
 
 		//aArgs.addAll(Arrays.asList(param.args));
-		addParametersToList(method, aArgs, param.args);
+		addParametersToList(method, aArgs, aParams);
 
 		method.setAccessible(true);
 

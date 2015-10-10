@@ -77,7 +77,7 @@ public class XClock
 Also we need to define a static method in order to know which class we want to hook.  
 E.g.  
 ```java
-    public static String getOriginalClassName()	{ return "com.android.systemui.statusbar.policy.Clock";	}
+public static String getOriginalClassName()	{ return TextView.class.getCanonicalName();	}
 ```
 
 ### 2.2. Methods
@@ -120,7 +120,7 @@ throw new HookThrowException(new NullPointerException());
 #### 2.3.1. Before method hooks  
 Returning anything except CONTINUE_EXECUTION will lead to blocked execution of the original method.  
 Also it will change the return value for non void methods.  
-To increase the readability I suggest to use STOP_EXECUTION in order to increase the readability.  
+To increase the readability I suggest to use STOP_EXECUTION.  
 Note: This works only for void methods and methods which are able to return null.  
 Otherwise it could lead to a crash of the app which holds the original class.
 ```java
@@ -141,7 +141,7 @@ The result of the original method will be passed to the after-method as first pa
 
 
 #### 2.3.3. Parameter Manipulation  
-In order to change the passed parameter you need to an annotation.  
+In order to change the passed parameter you need to add an annotation.  
 Methods with this annotation will receive all arguments as an object array as first parameter.  
 Note: Only before-methods can use this annotation.  
 ```java
@@ -162,7 +162,7 @@ So.. you just need to mark a before- or after-method as constructor by using an 
 In this case we don't care about the name of the method.  
 ```java
     @OriginalConstructor
-    @BeforeOriginalMethod
+    @AfterOriginalMethod
     public void TextView(Context context) throws Throwable {
         getThis().setText("constructor hooked");
     }
