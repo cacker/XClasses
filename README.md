@@ -91,7 +91,7 @@ The following methods helps you to write a readable code.
 > Calls getThis()
 
 **Object get(String strFieldName) throws TargetDestroyedException**  
-> Returns the content of the field with the name strFieldName.
+> Returns the content of the field with the name strFieldName.  
 > Use this method to create submethods.  
 > E.g.  
 > public String getName() {  
