@@ -95,7 +95,7 @@ The following methods helps you to write a readable code.
 > Use this method to create submethods.  
 > E.g.  
 > public String getName() {  
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return get("mName");  
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (String)get("mName");  
 > }  
 
 **void set(String strFieldName, Object object) throws TargetDestroyedException**  
