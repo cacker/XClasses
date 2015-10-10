@@ -178,3 +178,9 @@ Methods with this annotation will be hooked and redirected to the original metho
     @OriginalMethod
     private float getScaledTextSize() { return 0f; }
 ```
+
+
+
+## 3. Demo Module
+
+[Click me](https://github.com/seebye/XClasses-Demo-Module)
